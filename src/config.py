@@ -16,7 +16,6 @@ if not API_KEY:
 # Model settings
 MODEL = "claude-opus-4-7"
 DEFAULT_MAX_TOKENS = 1024
-DEFAULT_TEMPERATURE = 0.3
 
 # Shared Claude client - import this everywhere
 client = Anthropic(api_key=API_KEY)
