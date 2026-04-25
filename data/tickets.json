@@ -1,0 +1,27 @@
+[
+  {
+    "id": "T-001",
+    "submitted_at": "2026-04-25T09:14:00Z",
+    "customer_email": "alice@example.com",
+    "text": "I can't log in. The site keeps showing a 500 error. I have a meeting in 30 minutes!"
+  },
+  {
+    "id": "T-002",
+    "submitted_at": "2026-04-25T09:22:00Z",
+    "customer_email": "bob@example.com",
+    "text": "My subscription was charged twice this month. Please refund the duplicate charge."
+  },
+  {
+    "id": "T-003",
+    "submitted_at": "2026-04-25T10:01:00Z",
+    "customer_email": "carol@example.com",
+    "text": "Would love to see a dark mode in the dashboard. Just a suggestion!"
+  },
+  {
+    "id": "T-004",
+    "submitted_at": "2026-04-25T10:45:00Z",
+    "customer_email": "dan@example.com",
+    "text": "I just want to vent. Your last update broke half my workflows and I'm furious. I'm not asking for help, just letting you know I'm disappointed."
+  }
+]
+

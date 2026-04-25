@@ -1,43 +1,52 @@
 """Entry point for the AI Support Copilot."""
 from src.copilot import analyze_ticket
-from src.utils import banner, format_analysis
+from src.utils import banner, format_analysis, load_tickets, save_results
 
+INPUT_FILE = "data/tickets.json"
+OUTPUT_FILE = "data/results.json"
 
-# Sample tickets for demonstration
-SAMPLE_TICKETS = [
-    {
-        "id": "T-001",
-        "text": "I can't log in. The site keeps showing a 500 error. I have a meeting in 30 minutes!",
-    },
-    {
-        "id": "T-002",
-        "text": "My subscription was charged twice this month. Please refund the duplicate charge.",
-    },
-    {
-        "id": "T-003",
-        "text": "Would love to see a dark mode in the dashboard. Just a suggestion!",
-    },
-    {
-        "id": "T-004",
-        "text": "I don't want any help from you but I want you to know that your website's UI is very bad and very hard to navigate around."
-    }
-]
+def process_batch() -> None:
+    """Load tickets, analyze each, save results, print summary."""
+    banner("AI SUPPORT COPILOT — BATCH MODE")
 
+    tickets = load_tickets(INPUT_FILE)
+    print(f"\nLoaded {len(tickets)} tickets from {INPUT_FILE}\n")
 
-def run_demo() -> None:
-    """Analyze each sample ticket and print results."""
-    banner("AI SUPPORT COPILOT — DEMO")
+    results = []
+    success_count = 0
+    failure_count = 0
 
-    for ticket in SAMPLE_TICKETS:
-        print(f"\n\nTicket {ticket['id']}")
-        print(f"Original: {ticket['text']}\n")
+    for ticket in tickets:
+        ticket_id = ticket["id"]
+        print(f"Processing {ticket_id}...", end=" ", flush=True)
 
         try:
             analysis = analyze_ticket(ticket["text"])
-            print(format_analysis(analysis))
+            results.append({
+                "ticket_id": ticket_id,
+                "customer_email": ticket["customer_email"],
+                "analysis": analysis,
+                "status": "success",
+            })
+            success_count += 1
+            print("✓")
         except Exception as e:
-            print(f"  ERROR: {e}")
+            results.append({
+                "ticket_id": ticket_id,
+                "customer_email": ticket["customer_email"],
+                "error": str(e),
+                "status": "failed",
+            })
+            failure_count += 1
+            print(f"x ({e})")
+
+    save_results(results, OUTPUT_FILE)
+
+    banner("BATCH COMPLETE")
+    print(f"\n Successful; {success_count}")
+    print(f" Failed:    {failure_count}")
+    print(f" Output:    {OUTPUT_FILE}\n")
 
 
 if __name__ == "__main__":
-    run_demo()
+    process_batch()

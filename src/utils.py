@@ -1,5 +1,23 @@
 """Display and formatting helpers."""
+import json
+from pathlib import Path
 
+def load_tickets(filepath: str) -> list:
+    """Load tickets from a JSON file."""
+    path = Path(filepath)
+    if not path.exists():
+        raise FileNotFoundError(f"Tickets file not found: {filepath}")
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+    
+def save_results(results: list, filepath: str) -> None:
+    """Save analysis results to a JSON file."""
+    path = Path(filepath)
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
 
 def divider(char: str = "=", length: int = 60) -> None:
     """Print a horizontal divider line."""
