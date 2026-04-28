@@ -122,12 +122,13 @@ To process your own tickets, replace the contents of `data/tickets.json` with yo
 
 **Why temperature is omitted?** Claude Opus 4.7 deprecated the `temperature` parameter (April 2026). Determinism is now controlled via prompt engineering — explicit enums and strict rules in the system prompt.
 
-## Limitations & Next Steps
+## Roadmap
 
-- **Single-threaded** — processes tickets sequentially; large batches would benefit from `asyncio` parallelism
-- **No retry logic** — transient API failures mark a ticket as failed permanently; should add exponential backoff
-- **No evaluation suite** — quality is human-verified per run; adding a labeled test set with automated quality scoring would harden it
-- **No deployment** — runs locally; FastAPI wrapper + Docker would make it service-ready
+- [ ] Async batch processing for high-volume queues
+- [ ] Retry logic with exponential backoff for transient API failures
+- [ ] Evaluation suite — labeled test set with automated quality scoring
+- [ ] FastAPI wrapper for service deployment
+- [ ] Slack/Email integration for ticket ingestion
 
 ## Author
 
