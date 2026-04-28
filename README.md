@@ -35,19 +35,14 @@ Output (`data/results.json`):
 Run output:
 
 ============================================================
-              AI SUPPORT COPILOT — BATCH MODE
-============================================================
-2026-04-27 21:45:53 [INFO] Starting batch from data/tickets.json
-2026-04-27 21:45:53 [INFO] Loaded 4 tickets
-2026-04-27 21:45:58 [INFO] Analyzed T-001: technical/high
-2026-04-27 21:46:01 [INFO] Analyzed T-002: billing/high
-2026-04-27 21:46:06 [INFO] Analyzed T-003: feature_request/low
-2026-04-27 21:46:10 [INFO] Analyzed T-004: technical/medium
-============================================================
-                       BATCH COMPLETE
-============================================================
-2026-04-27 21:46:10 [INFO] Batch complete — Successful: 4, Failed: 0
-2026-04-27 21:46:10 [INFO] Output written to data/results.json
+AI SUPPORT COPILOT — BATCH MODE
+2026-04-26 12:14:12 [INFO] Starting batch from data/tickets.json
+2026-04-26 12:14:12 [INFO] Loaded 4 tickets
+2026-04-26 12:14:16 [INFO] Analyzed T-001: technical/high
+2026-04-26 12:14:19 [INFO] Analyzed T-002: billing/high
+2026-04-26 12:14:22 [INFO] Analyzed T-003: feature_request/low
+2026-04-26 12:14:26 [INFO] Analyzed T-004: technical/medium
+2026-04-26 12:14:26 [INFO] Batch complete — Successful: 4, Failed: 0
 
 ## Features
 
