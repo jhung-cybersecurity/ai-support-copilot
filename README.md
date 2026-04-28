@@ -133,4 +133,4 @@ To process your own tickets, replace the contents of `data/tickets.json` with yo
 ## Author
 
 Built as part of a structured AI engineering learning track.
-[GitHub](https://github.com/[YOUR_GITHUB_USERNAME])
+[GitHub](https://github.com/jhung-cybersecurity)
